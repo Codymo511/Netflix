@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.section`
     display: flex;
@@ -52,7 +52,7 @@ export const Header = styled.div`
     align-items: center;
     
     @media (max-width: 600px) {
-        font-size: 16px;
+        font-size: 16px;git
     }
 `;
 
@@ -71,4 +71,6 @@ export const Body = styled.div`
         font-size: 16px;
         line-height: 22px;
     }
+    
 `;
+
