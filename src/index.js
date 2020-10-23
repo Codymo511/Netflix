@@ -17,12 +17,10 @@ const config = {
 
 
 
-ReactDOM.render(
-    <>
-        <FirebaseContext.Provider value={{ firebase: window.firebase }}>
-            <GlobalStyles />
-            <App />
-        </FirebaseContext.Provider>
-    </>, 
+  ReactDOM.render(
+    <FirebaseContext.Provider value={{ firebase: window.firebase }}>
+        <GlobalStyles />
+        <App />
+    </FirebaseContext.Provider>, 
     document.getElementById('root')
 );
