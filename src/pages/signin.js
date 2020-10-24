@@ -7,12 +7,15 @@ export default function Signin() {
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
     
+    const isInvalid = password === '' | emailAddress === '';
+    
     const handleSignin = (event) => {
         event.preventDefault();
         
         // call in here to firebase to authenticate the user
         // if there's an error, populate the error state
     }
+    
     return (
         <HeaderContainer>
             <Form>
@@ -32,7 +35,7 @@ export default function Signin() {
                         placeholder="Password"
                         onChange={({ target }) => setPassword(target.value)} 
                     />
-                    <Form.Submit disabled={false} type="submit">
+                    <Form.Submit disabled={isInvalid} type="submit">
                         Sign In
                     </Form.Submit>
                     
