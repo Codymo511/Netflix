@@ -2,7 +2,7 @@ import React from 'react';
 import { Header, Profiles } from '../components';
 import * as ROUTES from '../constants/routes';
 
-export function SelectProfileContainer() {
+export function SelectProfileContainer({ user, setProfile }) {
     return (
         <>
             <Header bg={false}>
@@ -17,6 +17,7 @@ export function SelectProfileContainer() {
             <Profiles>
                 <Profiles.Title>Who's watching?</Profiles.Title>
                 <Profiles.List>
+                {/*to select different users come back and map over this*/}
                     <Profiles.User
                         onClick={() => setProfile({
                             displayName: user.displayName,
