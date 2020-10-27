@@ -17,7 +17,6 @@ export function SelectProfileContainer({ user, setProfile }) {
             <Profiles>
                 <Profiles.Title>Who's watching?</Profiles.Title>
                 <Profiles.List>
-                {/*to select different users come back and map over this*/}
                     <Profiles.User
                         onClick={() => setProfile({
                             displayName: user.displayName,
