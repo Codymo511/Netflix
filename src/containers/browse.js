@@ -10,6 +10,7 @@ export function BrowseContainer({ slides }) {
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
+    const [slideRows, setSlideRows] = useState([]);
     
     const { firebase } = useContext(FirebaseContext);
     
@@ -23,6 +24,10 @@ export function BrowseContainer({ slides }) {
             setLoading(false)
         }, 3000);
     }, [user])
+    
+    useEffect(() => {
+        setSlideRows(slides[category]);
+    }, [slides, category]);
     
     return profile.displayName ? (
         <>
@@ -73,9 +78,23 @@ export function BrowseContainer({ slides }) {
             </Header>
             
             <Card.Group>
-                
+                {slideRows.map((slideItem) => (
+                    <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
+                        <Card.Title>{slideItem.title}</Card.Title>
+                        <Card.Entities>
+                            {slideItem.data.map((item) => (
+                                <Card.Item key={item.docId} item={item}>
+                                    <Card.Image src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`} />
+                                    <Card.Meta>
+                                        <Card.SubTitle>{item.title}</Card.SubTitle>
+                                        <Card.Text>{item.description}</Card.Text>
+                                    </Card.Meta>
+                                </Card.Item>
+                            ))}
+                        </Card.Entities>
+                    </Card>
+                ))}
             </Card.Group>
-            
             <FooterContainer />
         </>)
         : (<SelectProfileContainer user={user} setProfile={setProfile} />);
