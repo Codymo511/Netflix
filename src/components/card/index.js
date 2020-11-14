@@ -1,5 +1,4 @@
 import React, { useState, useContext, createContext } from 'react';
-
 import {
     Container,
     Group,
@@ -18,16 +17,19 @@ import {
     Image
 } from './styles/card';
 
+
 const FeatureContext = createContext();
 
 export default function Card({ children, ...restProps }) {
     const [showFeature, setShowFeature] = useState(false);
     const [itemFeature, setItemFeature] = useState(false);
     
+
     return (
       <FeatureContext.Provider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
         <Container {...restProps}>{children}</Container>
       </FeatureContext.Provider>
+      
     )
 }
 
@@ -98,4 +100,11 @@ Card.Feature = function CardFeature({ children, category, ...restProps }) {
             </Content>
         </Feature>
     ): null;
-};
+}
+
+Card.Rating = function Rating({children, category, ...restProps}) {
+    return ;
+}
+
+ 
+
